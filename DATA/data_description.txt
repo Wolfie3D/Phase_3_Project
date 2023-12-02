@@ -1,0 +1,51 @@
+each column in more detail:
+
+'Cost':
+
+HTML Element: <div class="qa-advert-price">
+Extracted Data: The cost of the property, presented as "KSh 11,000,000." This value represents 
+the listed price of the property.
+
+'Title':
+
+HTML Element: <div class="b-advert-title-inner qa-advert-title b-advert-title-inner--div">
+Extracted Data: The title of the property, such as "2bdrm Apartment in Hurlingham for sale." 
+This provides a concise description of the property type and location.
+
+'Description':
+
+HTML Element: <div class="b-list-advert-base__description-text">
+Extracted Data: A detailed description of the property, offering information about its features and 
+characteristics. This field provides potential buyers with additional context about the property.
+
+'Location':
+
+HTML Element: <span class="b-list-advert__region__text">
+Extracted Data: The location of the property, specifying both the city and a more granular area, such as 
+"Nairobi, Kilimani." This information helps potential buyers understand the property's geographical context.
+
+'Bedrooms':
+
+HTML Element: <div class="b-list-advert-base__item-attr"> (First occurrence in the list)
+Extracted Data: The number of bedrooms in the property. This essential detail informs potential buyers about
+ the property's size and accommodation capacity.
+
+'Bathrooms':
+
+HTML Element: <div class="b-list-advert-base__item-attr"> (Second occurrence in the list)
+Extracted Data: The number of bathrooms in the property. This information complements the bedrooms data, 
+providing insights into the property's convenience and functionality.
+
+'Furnished':
+
+HTML Element: <div class="b-list-advert-base__item-attr"> (Third occurrence in the list)
+Extracted Data: Indicates whether the property is furnished or not. This detail is crucial for buyers 
+seeking properties with specific interior features.
+
+'Space':
+
+HTML Element: <div class="b-list-advert-base__item-attr"> (Fourth occurrence in the list)
+Extracted Data: The total space of the property, expressed as "106 sqm." This provides information about 
+the overall size of the property, aiding buyers in assessing space adequacy.
+
+
