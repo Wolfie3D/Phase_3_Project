@@ -1,12 +1,11 @@
 from flask import Flask, render_template, request
-from sklearn.externals import joblib
+from joblib import load
 import pandas as pd
 
 app = Flask(__name__)
 
 # Load the ETL pipeline and the trained RandomForestRegressor model
-etl_pipeline = joblib.load('etl_pipeline.joblib')
-rf_model = joblib.load('best_model_rf.joblib')
+rf_model = load('Xg_model.joblib')
 
 
 @app.route('/')
@@ -17,33 +16,31 @@ def index():
 @app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
+
         # Collect user input from the form
-        cost = request.form['cost']
-        title = request.form['title']
-        description = request.form['description']
-        location = request.form['location']
-        bedrooms = request.form['bedrooms']
-        bathrooms = request.form['bathrooms']
-        furnished = request.form['furnished']
-        space = request.form['space']
+        County = request.form['County']
+        Neighborhood = request.form['Neighborhood']
+        Bedrooms = request.form['Bedrooms']
+        Bathrooms = request.form['Bathrooms']
+        Size = request.form['Size']
+        Quality = request.form['Quality']
+        Type = request.form['Type']
+        Furnished = request.form['Furnished']
 
         # Create a DataFrame from user input
         user_data = pd.DataFrame({
-            'Cost': [cost],
-            'Title': [title],
-            'Description': [description],
-            'Location': [location],
-            'Bedrooms': [bedrooms],
-            'Bathrooms': [bathrooms],
-            'Furnished': [furnished],
-            'Space': [space],
+            'County': [County],
+            'Neighborhood': [Neighborhood],
+            'Bedrooms': [Bedrooms],
+            'Bathrooms': [Bathrooms],
+            'Size': [Size],
+            'Quality': [Quality],
+            'Type': [Type],
+            'Furnished': [Furnished],
         })
 
-        # Apply ETL transformations
-        transformed_data = etl_pipeline.transform(user_data)
-
         # Make prediction using the RandomForestRegressor model
-        prediction = rf_model.predict(transformed_data)[0]
+        prediction = rf_model.predict(user_data)[0]
 
         # Display the prediction to the user
         return render_template('result.html', prediction=prediction)
