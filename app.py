@@ -5,16 +5,16 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load the ETL pipeline and the trained RandomForestRegressor model
-rf_model = load('Xg_model.joblib')
+rf_model = load('/MODELS/lr_model.joblib')
 
 
-@app.route('/')
+@app.route('/index.html')
 def index():
     return render_template('index.html')
 
 
-@app.route('/predict', methods=['POST'])
-def predict():
+@app.route('/result.html', methods=['POST'])
+def predictions():
     if request.method == 'POST':
 
         # Collect user input from the form
@@ -43,7 +43,7 @@ def predict():
         prediction = rf_model.predict(user_data)[0]
 
         # Display the prediction to the user
-        return render_template('result.html', prediction=prediction)
+        return render_template('/templates/result.html', prediction=prediction)
 
 
 if __name__ == '__main__':

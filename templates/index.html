@@ -10,23 +10,35 @@
     <h1>House Price Estimation</h1>
     <form method="post" action="/predict">
       <label for="County">County:</label>
-      <input type="text" name="County" required /><br />
+      <input type="text" name="County" required />
+      <br />
+
       <label for="Neighborhood">Neighborhood:</label>
-      <input type="text" name="Neighborhood" required /><br />
+      <input type="text" name="Neighborhood" required />
+      <br />
+
       <label for="Bedrooms">Bedrooms:</label>
-      <input type="text" name="Bedrooms" required /><br />
+      <input type="text" name="Bedrooms" required />
+      <br />
+
       <label for="Bathrooms">Bathrooms:</label>
-      <input type="text" name="Bathrooms" required /><br />
+      <input type="text" name="Bathrooms" required />
+      <br />
+
       <label for="Size">Size:</label>
-      <input type="text" name="Size" required /><br />
+      <input type="text" name="Size" required />
+      <br />
+
       <label for="Quality">Quality:</label>
       <select type="text" name="Quality" required>
-        <br />
+        <option value="House"></option>
         <option value="House">Good</option>
         <option value="Mansion">Moderate</option></select
       ><br />
-      <label for="Quality">Type:</label>
-      <select type="text" name="Type"  required>
+
+      <label for="Type">Type:</label>
+      <select type="text" name="Type" required>
+        <option></option>
         <option value="Apartment">Apartment</option>
         <option value="Villa">Villa</option>
         <option value="Bungalow">Bungalow</option>
@@ -35,13 +47,18 @@
         <option value="Mansion">Mansion</option>
         <option value="flat">Flat</option></select
       ><br />
+
       <label for="Furnished">Furnished:</label>
-      <select name="Furnished" type="text" required>
+      <select type="text" name="Furnished" required>
+        <option></option>
         <option value="Unfurnished">Unfurnished</option>
         <option value="Furnished">Furnished</option>
         <option value="Semi-Furnished">Semi-Furnished</option></select
       ><br />
       <button type="submit">Predict</button>
+      <h2>Prediction Result</h2>
+      <p>Predicted Cost: {{ prediction }}</p>
+      <a href="/">Go back to the form</a>
     </form>
   </body>
 </html>
